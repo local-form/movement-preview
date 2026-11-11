@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Movement: a watch that only runs while you scroll</title>
+<meta name="description" content="A concept site by Local Form. Scroll down through the glass and into a working mechanical watch, built entirely in code. It only runs while you scroll.">
+<meta name="theme-color" content="#e6e1d6">
+<link rel="canonical" href="https://preview.localform.online/movement-preview/">
+<meta property="og:title" content="Movement: a watch that only runs while you scroll">
+<meta property="og:description" content="A concept site by Local Form. Dive inside a working mechanical watch, built entirely in code.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://preview.localform.online/movement-preview/">
+<meta property="og:image" content="https://preview.localform.online/movement-preview/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/unbounded-800.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="module" crossorigin src="./assets/index-CQaZbWbi.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-GzknlQU8.css">
+</head>
+<body>
+<a class="skip" href="#end">Skip to the end</a>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<header class="bar">
+  <a class="tab mark" href="#top">Movement</a>
+  <span class="tab tag">A Local Form concept</span>
+  <span class="bar__gap"></span>
+  <button class="tab sound" id="sound" type="button" aria-pressed="false">Sound<span id="soundState"> off</span></button>
+  <span class="tab count" aria-label="Beats so far"><b id="beats">0</b> beats</span>
+</header>
+
+<main>
+  <div id="dive">
+    <section class="beat beat--face" data-beat="face" id="top">
+      <p class="eyebrow">A Local Form concept</p>
+      <h1>Time moves when <em>you</em> do.</h1>
+      <p>Scroll and it runs. Stop, and it stops with you.</p>
+    </section>
+    <section class="beat slip" data-beat="glass" id="glass">
+      <p class="no"><i></i>02 / 08 &nbsp;Under the glass</p>
+      <h2>Two blue hands and one orange one.</h2>
+      <p>Only the orange one is in a hurry. It moves eight times a second, and only while you do.</p>
+    </section>
+    <section class="beat slip" data-beat="whole" id="whole">
+      <p class="no"><i></i>03 / 08 &nbsp;Under the dial</p>
+      <h2><span id="parts">159</span> parts. None of them moves unless you do.</h2>
+      <p>Calibre LF-01 doesn't exist. Every wheel, screw and jewel in it was built in code for this page.</p>
+    </section>
+    <section class="beat slip" data-beat="wind" id="wind">
+      <p class="no"><i></i>04 / 08 &nbsp;Winding</p>
+      <h2>Your scroll winds it.</h2>
+      <p>The rotor swings, the ratchet wheel clicks round, and the mainspring pulls tight.</p>
+    </section>
+    <section class="beat slip" data-beat="train" id="train">
+      <p class="no"><i></i>05 / 08 &nbsp;The gear train</p>
+      <h2>Every wheel answers to the one before it.</h2>
+      <p>Four turns of one is one turn of the next. The tooth counts are real, all the way down.</p>
+    </section>
+    <section class="beat slip" data-beat="tick" id="tick">
+      <p class="no"><i></i>06 / 08 &nbsp;The escapement</p>
+      <h2>This is the tick.</h2>
+      <p>The escape wheel tries to run away. Twice a swing, a ruby catches it. Slowed down here so you can watch.</p>
+    </section>
+    <section class="beat slip" data-beat="balance" id="balance">
+      <p class="no"><i></i>07 / 08 &nbsp;The balance</p>
+      <h2>Eight beats a second.</h2>
+      <p>The hairspring breathes in and out. This is the part that keeps the time.</p>
+    </section>
+    <section class="beat slip" data-beat="heart" id="heart">
+      <p class="no"><i></i>08 / 08 &nbsp;The heart</p>
+      <h2>This part doesn't wait for you.</h2>
+      <p>Stop scrolling. It keeps going.</p>
+    </section>
+  </div>
+
+  <section class="end" id="end" tabindex="-1">
+    <div class="end__copy">
+      <p class="no"><i></i>Your watch</p>
+      <h2>You wound it <span id="endBeats">0</span> beats.</h2>
+      <p class="end__lede">That took you <span id="endTime">0 seconds</span>. Here is the card that says so.</p>
+      <div class="end__actions">
+        <button class="btn btn--fill" id="save" type="button">Save the card</button>
+        <button class="btn" id="again" type="button">Back to the face</button>
+      </div>
+      <footer class="end__credit">Movement is a concept site. The watch and its maker are made up; the build is real.<br>Designed and built by <a href="https://localform.online">Local Form</a>, websites for local businesses, Bloomfield NJ.</footer>
+    </div>
+    <div class="end__card"><canvas id="card" width="1080" height="1350" role="img" aria-label="Your Movement card: the calibre from above, your beat count, your time and today's date"></canvas></div>
+  </section>
+</main>
+
+<nav class="rail" aria-label="Chapters">
+  <button type="button" data-go="face" aria-label="The face"></button>
+  <button type="button" data-go="glass" aria-label="Under the glass"></button>
+  <button type="button" data-go="whole" aria-label="Under the dial"></button>
+  <button type="button" data-go="wind" aria-label="Winding"></button>
+  <button type="button" data-go="train" aria-label="The gear train"></button>
+  <button type="button" data-go="tick" aria-label="The escapement"></button>
+  <button type="button" data-go="balance" aria-label="The balance"></button>
+  <button type="button" data-go="heart" aria-label="The heart"></button>
+</nav>
+<p class="hint" id="hint" aria-hidden="true">Scroll to start it</p>
+<script>/* lf-open: counts a tagged preview link being opened (?r=). No cookies. Local Form */(function(){try{var r=new URLSearchParams(location.search).get('r');if(!r||!navigator.sendBeacon||sessionStorage.getItem('lf-open'))return;sessionStorage.setItem('lf-open','1');navigator.sendBeacon('https://localform.online/api/open',JSON.stringify({r:r,s:location.pathname.split('/')[1]||location.hostname,d:matchMedia('(pointer:coarse)').matches?'phone':'desktop'}))}catch(e){}})();</script>
+</body>
+</html>
